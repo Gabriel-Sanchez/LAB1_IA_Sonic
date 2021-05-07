@@ -13,3 +13,8 @@ Colocar el archivo controlador dentro de la carpeta lab_1, y ejecutar
 python sonic.py
 
 Si sonic se mueve, entonces ya funciona.
+
+pip install imutils
+pip install numpy
+pip install opencv-python
+pip install pygame
