@@ -4,11 +4,13 @@ import pandas as pd
 
 
 # Hacen lista de los archivos que generaro
-jugadas = [
-    'SonicTheHedgehog-Genesis-GreenHillZone.Act1-0000001.bk2',
-    'SonicTheHedgehog-Genesis-GreenHillZone.Act1-0000002.bk2'
-    ]
+jugadas = []
 
+for numeroJugada in range(27):
+    jugadas.append('SonicTheHedgehog-Genesis-GreenHillZone.Act1-000000'+str(numeroJugada)+'.bk2')
+
+for i in jugadas:
+    print(i)
 
 for n in jugadas:
     print()
@@ -40,8 +42,11 @@ for n in jugadas:
         # print(keys)
         target = np.vstack((target, keys))
         ob, rew, done, info = env.step(keys)
+    
+    import ipdb;ipdb.set_trace()
+    
     df= pd.DataFrame(list(zip(world,target)), columns=["data","target"])
-    df_2 = merge.append(df) 
+    df_2 = merge.append(df, ignore_index=True) 
     df_2.to_csv("dataset.csv")
     world = []
     target = []
